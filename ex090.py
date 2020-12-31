@@ -19,6 +19,7 @@ aluno = {
 escola = list()
 escola.append(aluno.copy())
 
+print('-='*30)
 for a in escola:
     for k, v in a.items():
-        print(f'{k} = {v}', end=' ')
+        print(f'  - {k} é igual a {v}')

@@ -1,18 +1,16 @@
 from datetime import date
 atual = date.today().year
+dados = dict()
 
-nome = input('Nome:').strip()
+dados['nome'] = input('Nome:').strip()
 nasc = int(input('Ano de Nascimento:'))
-idade = atual - nasc
-tb = int(input('Carteira de trabalho [0 não tem]:'))
-if tb > 1:
-    contrato = int(input('Ano de contratação:'))
-    salario = float(input('Salário:'))
+dados['idade'] = atual - nasc
+dados['ctps'] = int(input('Carteira de trabalho [0 se não tiver]:'))
 
-pessoa = {
-    'nome': nome,
-    'idade': idade,
-    'CTPS': tb,
-    'contrato': contrato,
-    'salário': salario
-}
+if dados['ctps'] != 0:
+    dados['contratação'] = int(input('Ano de contratação:'))
+    dados['salário'] = float(input('Salário:'))
+    dados['aposentadoria'] = dados['idade'] + (dados['contratação'] + 35) - atual
+print('-='*30)
+for k, v in dados.items():
+    print(f'    - {k} tem valor {v}')
